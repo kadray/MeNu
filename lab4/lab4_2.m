@@ -1,7 +1,7 @@
 clear all
 close all
 clc
-A=[1, 2, 3; 2, 8, 10; 3, 10 ,22]
+%macierz symetryczna, dodatnio określona
+A= [4, -1, 2; -1, 5, 3; 2, 3, 6] 
 [L, LT]=myChol(A)
-LT = L'
 A_back=L*L'

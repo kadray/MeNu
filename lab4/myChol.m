@@ -1,8 +1,5 @@
 function [L,LT] = myChol(A);
     [N, N] = size(A);
-    if ~issymmetric(A) || any(eig(A) <= 0)
-        error('error');
-    end
 
     L=zeros(N, N);
     for i =1:N
@@ -20,5 +17,5 @@ function [L,LT] = myChol(A);
                 L(k,i) = (A(k,i) - sum2) / L(i,i);
         end
     end
-    LT=L'
+    LT=L';
 end
