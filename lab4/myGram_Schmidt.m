@@ -9,7 +9,7 @@ function [Q, R] = myGram_Schmidt(A)
             R(i, j) = Q(:, i)' * A(:, j);
             v = v - R(i, j) * Q(:, i);
         end
-        R(j, j) = norm(v);
-        Q(:, j) = v / R(j, j);
+        R(j, j) = norm(v); %długość wektora
+        Q(:, j) = v / R(j, j); %wektor znormalizowany
     end
 end
