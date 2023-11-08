@@ -9,7 +9,7 @@ function Ainv = inv3(A)
           temp_m = A;
           temp_m(i,:) = [];
           temp_m(:,j) = [];
-          AD(i,j) = (-1).^(i+j) * det(temp_m);
+          AD(i,j) = (-1)^(i+j) * det(temp_m);
         end
       end
 
