@@ -3,21 +3,21 @@ close all
 clc
 
 N = 100;
-M=4
-f=0.5
-T=1/f
+M=4;
 t = linspace(0, (N/M)*2*pi, N); 
-x = sin(t); 
-plot(t, x, 'o');
-hold on
-plot(t, sin(t))
-T=1
-x_interp=0
-t_i= linspace(0, (N/M)*2*pi, N*8)
-for n=1:N
-    x_interp= x_interp + x(n)*sinc(pi/T*(t_i-n*T));
+x = sin(t);
+T=2*pi
+t_interp = linspace(0, (N/M)*2*pi, N*8); 
+x_interp = zeros(size(t_interp)); 
+
+for i = 1:length(t_interp)
+    for n = 1:length(t)
+        x_interp(i) = x_interp(i) + x(n) * sinc(pi/T * (t_interp(i) - t(n)));
+    end
 end
 
-
-hold on
-plot(t, x_interp, 'o-')
+plot(t, x, 'o', t_interp, x_interp, 'r-'); 
+legend('Sinusoida oryginalna', 'Sinusoida zinterpolowana');
+xlabel('Czas');
+ylabel('Amplituda');
+title('Interpolacja sinusoidy przy użyciu funkcji sinc()');
