@@ -6,7 +6,7 @@ N = 100;
 M=4;
 t = linspace(0, (N/M)*2*pi, N); 
 x = sin(t);
-T=2*pi
+T=2*pi;
 t_interp = linspace(0, (N/M)*2*pi, N*8); 
 x_interp = zeros(size(t_interp)); 
 
