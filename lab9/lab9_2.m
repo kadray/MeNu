@@ -11,10 +11,11 @@ cb = nonlinsolvers( f, fp, a, b, 'bisection', it );
 subplot(2, 1, 2); plot( 1:it,cb,'o-'); xlabel('iter'); ylabel('cb(iter)');
 grid on, legend('Bisection');
 
- for l=1:it
+ for l=2:it
         if abs(cb(l) - pi) < 0.001 / 100
             disp('przybliżona wartość pi :');
             disp(cb(l));
+             disp(l + " iteracji")
             break;
         end
     end
