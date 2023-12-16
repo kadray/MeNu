@@ -25,17 +25,18 @@ pause;
 %------------------------------------------------
 
 
-x1_table=[2, 1, -2];
-x2_table=[3, 5, 1];
+x1_table=[1, 2, -2];
+x2_table=[5, 3, 1];
 
-a_table = [tan(deg2rad(45))/2, 
-           tan(deg2rad(5))/2, 
+a_table = [tan(deg2rad(5))/2, 
+           tan(deg2rad(45))/2, 
            tan(deg2rad(80))/2];
 
-names=["45 deg", "5-10 deg", "80 deg"];
+names=["5-10deg", "45deg", "80deg"];
 
 x = linspace(-5, 5, 100);
 y_zero=zeros(size(x));
+iters=[];
 for k=1:3
     a=a_table(k);
     x1=x1_table(k);
@@ -58,8 +59,10 @@ for k=1:3
         if abs(cb(l) - x1_table(k)) < 0.001 /100 || abs(cb(l) - x2_table(k)) < 0.001 /100
             disp('ilość iteracji dla '+ names(k));
             disp(l);
+            iters(k)=l;
             break;
         end
     end
     pause;
 end
+plot(1:3, iters)
