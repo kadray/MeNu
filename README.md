@@ -1,1 +1,1 @@
-"# MeNu" 
+*Numerical Methods Course - AGH*
